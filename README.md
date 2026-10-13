@@ -127,8 +127,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -
 ```
 export PATH="$PATH:$HOME/bin"
 ```
+
+*Ellenőrzés (Legfrissebb verzónak kell lennie)*
 ```
-just --help
+just --version
 ```
 
 

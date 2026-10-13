@@ -27,7 +27,7 @@
 ```
 sudo nano /etc/hosts
 ```
-# Másoljuk a következőt bele:
+## Másoljuk a következőt bele:
 ```
 127.0.0.1       vm1.test api.vm1.test frontend.vm1.test responsive.vm1.test backend.vm1.test pma.vm1.test docs.vm1.test$
 ```
@@ -35,7 +35,7 @@ sudo nano /etc/hosts
 ```
 sudo nano ~/.ssh/config
 ```
-# Másoljuk a következőt bele:
+## Másoljuk a következőt bele:
 *Note: A 22-es port alapártelmezetten foglalt Mac-en*
 ```
 Host vm1.test
@@ -133,5 +133,19 @@ export PATH="$PATH:$HOME/bin"
 just --version
 ```
 
+***
 
 # NOTE: Docker imagek-et ez nem tartalmaz!
+
+*Docker Permission error fix:*
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
+## Ellenőrzés:
+
+```
+groups
+```
+

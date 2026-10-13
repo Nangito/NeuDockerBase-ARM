@@ -1,4 +1,4 @@
-# Ez a projekt amiatt jött létre, hogy az órán használt VirtualBox image ARM alapú processzorokon is futhasson!
+# NeuDockerbase futtatása ARM alapú processzorokon!
 
 # A következő pár lépés akkor szükséges ha az előre elkészített image nem áll rendelkezésre
 - A virtuális gép felépítéséhez szükséges az Ubuntu ARM szerver image, ami a következő linkről letölthető: [Ubuntu](https://ubuntu.com/download/server/arm)

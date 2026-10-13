@@ -1,8 +1,8 @@
 # Ez a projekt amiatt jött létre, hogy az órán használt VirtualBox image ARM alapú processzorokon is futhasson!
 
 # A következő pár lépés akkor szükséges ha az előre elkészített image nem áll rendelkezésre
-- A virtuális gép felépítéséshez szükséges az Ubuntu ARM szerver image, ami a következő linkről letölthető: [Ubuntu](https://ubuntu.com/download/server/arm)
-- Autómatikus telepítés során adjunk neki Felhasználónevet és Jelszavat
+- A virtuális gép felépítéséhez szükséges az Ubuntu ARM szerver image, ami a következő linkről letölthető: [Ubuntu](https://ubuntu.com/download/server/arm)
+- Automatikus telepítés során adjunk neki Felhasználónevet és Jelszavat
 - Adjunk neki 4 processzor magot és 4GB ramot
 - A következő portokat forwardoljuk: 
 
@@ -36,6 +36,7 @@ sudo nano /etc/hosts
 sudo nano ~/.ssh/config
 ```
 # Másoljuk a következőt bele:
+*Note: A 22-es port alapártelmezetten foglalt Mac-en*
 ```
 Host vm1.test
 	HostName vm1.test 
@@ -67,6 +68,7 @@ sudo apt install -y \
   docker-compose-v2 \
   fail2ban \
   findutils \
+  just \
   git \
   grep \
   gzip \

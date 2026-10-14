@@ -9,7 +9,7 @@
 
 | Name | Protocol | Host IP | Host Port | Guest IP | Guest Port |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| HTTP | TCP | 127.0.0.1 | 80 | | 80 |
+| HTTP | TCP | 127.0.0.1 | 80* | | 80 |
 | HTTP2 | TCP | 127.0.0.1 | 8080 | | 8080 |
 | JSON_Server | TCP | 127.0.0.1 | 8888 | | 8888 |
 | MSSQL | TCP | 127.0.0.1 | 1433 | | 1433 |
@@ -19,23 +19,25 @@
 | SSH | TCP | 127.0.0.1 | 22 | | 22 |
 | Vite | TCP | 127.0.0.1 | 5173 | | 5173 |
 
+\* Ha a VirtualBox-ot nem "root"-ként indítjuk akkor 8000-es portnak kell lennie és a domainnak meg kell adni a portot (pl.: frontend.vm1.test:8000)
+  
 ***
 
 
-# Az image indítása előtt szükség lesz a következőkre(Szükséges lépés meglévő imaggel is):
+# Az image indítása előtt szükség lesz a következőkre:
+# Host beállítások:
 
 ```
 sudo nano /etc/hosts
 ```
-## Másoljuk a következőt bele:
 ```
 127.0.0.1       vm1.test api.vm1.test frontend.vm1.test responsive.vm1.test backend.vm1.test pma.vm1.test docs.vm1.test$
 ```
 ***
+# SSH beállítások:
 ```
 sudo nano ~/.ssh/config
 ```
-## Másoljuk a következőt bele:
 *Note: A 22-es port alapártelmezetten foglalt Mac-en*
 ```
 Host vm1.test
@@ -114,6 +116,17 @@ sudo apt install -y \
 sudo npm install -g pm2
 ```
 
+```
+sudo systemctl stop nginx && sudo systemctl disable nginx
+```
+```
+sudo systemctl stop apache2 && sudo systemctl disable apache2
+```
+```
+sudo systemctl stop postgresql && sudo systemctl disable postgresql
+```
+
+
 # A [FullStack](https://github.com/rcsnjszg/fullstack2627.git) alapon belül:
 ```
 sudo apt remove just
@@ -148,4 +161,9 @@ newgrp docker
 ```
 groups
 ```
+***
 
+# Indítás!!
+```
+just init
+```
